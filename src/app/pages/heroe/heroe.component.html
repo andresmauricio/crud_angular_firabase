@@ -1,0 +1,76 @@
+<h1><small>Nombre del </small>Héroe</h1>
+<hr>
+
+<div class="row">
+    <div class="col text-right">
+        <button routerLink="/heroes" class="btn btn-secondary">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form   (ngSubmit)="save(form)"
+                #form="ngForm">
+            
+            <div class="form-group">
+                <label>Firabase ID</label>
+                <input  class="form-control"
+                        type="text"
+                        placeholder="Firabase ID"
+                        disabled="disabled"
+                        [(ngModel)]="heroe.id"
+                        name="id">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input  class="form-control"
+                        type="text"
+                        placeholder="Nombre de héroe"
+                        required
+                        [(ngModel)]="heroe.name"
+                        name="name">
+            </div>
+
+            <div class="form-group">
+                <label>Poder</label>
+                <input  class="form-control"
+                        type="text"
+                        placeholder="Poder"
+                        required
+                        [(ngModel)]="heroe.power"
+                        name="power">
+            </div>
+
+            <div class="form-group">
+                <label>Estado</label>
+                <br>
+                <button     *ngIf="heroe.life"
+                            (click)="heroe.life = false"
+                            class="btn btn-outline-success w-50">
+                    <i class="fa fa-smile-wink"></i>
+                    Vivo
+                </button>
+
+                <button     *ngIf="!heroe.life"
+                            (click)="heroe.life = true"
+                            class="btn btn-outline-danger w-50">
+                    <i class="fa fa-dizzy"></i>
+                    Muerto
+                </button>
+            </div>
+
+            <div class="form-group text-center">
+                <button class="btn btn-dark w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+            
+        </form>
+    </div>
+</div>
